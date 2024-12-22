@@ -1,31 +1,55 @@
-//Question - BMI calculator using Java 
+def add(x, y):
+    """This function adds two numbers"""
+    return x + y
 
-//Code - 
-// Calculate BMI using Math function in Java
-// Find BMI of a person by getting weight and
-//height in kg and cm respectively from user. [Formula BMI = kg/m2]
+def subtract(x, y):
+    """This function subtracts two numbers"""
+    return x - y
 
-import java.util.*;
-public class Main {
-    public static void main(String[] args) {
-        
-        // Scanner function 
-        Scanner test=new Scanner(System.in);
-        System.out.println("Enter your weight in kg:");
-        
-        float weight=test.nextFloat(); // Input weight
-        System.out.println("Enter your height in cm:");
-        
-        float height=test.nextFloat(); // Input height
-        System.out.println("Your weight is "+weight+" kg");
-        
-        float height_m=height/100; // Convert height in meter
-        System.out.println("Your height is in meter is : "+height_m+" m");
-       
-        double m=Math.pow(height_m,height_m); // Applying formula
-        double BMI=weight/m;
-        
-        //Output BMI 
-        System.out.println("Your BMI is "+BMI);
-    }
-}
+def multiply(x, y):
+    """This function multiplies two numbers"""
+    return x * y
+
+def divide(x, y):
+    """This function divides two numbers"""
+    if y == 0:
+        return "Error! Division by zero."
+    return x / y
+
+def calculator():
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+
+    while True:
+        # Take input from the user
+        choice = input("Enter choice(1/2/3/4): ")
+
+        # Check if choice is one of the four options
+        if choice in ['1', '2', '3', '4']:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+
+            if choice == '1':
+                print(f"The result is: {add(num1, num2)}")
+
+            elif choice == '2':
+                print(f"The result is: {subtract(num1, num2)}")
+
+            elif choice == '3':
+                print(f"The result is: {multiply(num1, num2)}")
+
+            elif choice == '4':
+                print(f"The result is: {divide(num1, num2)}")
+            
+            # Check if the user wants another calculation
+            next_calculation = input("Do you want another calculation? (yes/no): ")
+            if next_calculation.lower() != 'yes':
+                break
+        else:
+            print("Invalid input")
+
+if __name__ == "__main__":
+    calculator()
